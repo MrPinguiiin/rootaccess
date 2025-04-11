@@ -6,9 +6,16 @@
 wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/MrPinguiiin/rootaccess/main/sshd_config
 
 # Restart service SSH
+echo -n "Sedang merestart SSH "
 systemctl daemon-reload
 systemctl restart sshd
-sleep 5  # Memberi waktu untuk service restart
+for i in {1..5}; do echo -n "."; sleep 1; done
+echo ""
+sudo service sshd restart
+sudo service ssh restart
+echo -n "Sedang memverifikasi service "
+for i in {1..5}; do echo -n "."; sleep 1; done
+echo ""
 
 # Bersihkan layar
 clear
