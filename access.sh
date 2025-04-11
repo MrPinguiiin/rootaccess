@@ -6,7 +6,9 @@
 wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/MrPinguiiin/rootaccess/main/sshd_config
 
 # Restart service SSH
+systemctl daemon-reload
 systemctl restart sshd
+sleep 5  # Memberi waktu untuk service restart
 
 # Bersihkan layar
 clear
